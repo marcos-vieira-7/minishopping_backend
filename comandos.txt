@@ -1,0 +1,1 @@
+source venv/Scripts/activate (ativar virtual-env no Git bash windows)
