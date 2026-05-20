@@ -1,21 +1,21 @@
 from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 from .models import Produto
 from .serializers import ProdutoSerializer
 from .permissions import IsAdminOrReadOnly
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
-# Create your views here.
-class ProdutoListCreateView(generics.ListCreateAPIView):
+# below create generic views for list, create, retrieve, update and destroy
+class ProdutoViewSet(viewsets.ModelViewSet):
     queryset = Produto.objects.all()
     serializer_class = ProdutoSerializer
-    permission_classes = [IsAdminOrReadOnly]
+    permission_classes = [AllowAny]
 
-
-class ProdutoRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+class ProdutoListView(viewsets.ReadOnlyModelViewSet):
     queryset = Produto.objects.all()
     serializer_class = ProdutoSerializer
-    permission_classes = [IsAdminOrReadOnly]
+    permission_classes = [AllowAny]
 
 
 """
