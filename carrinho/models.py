@@ -4,7 +4,7 @@ from produtos.models import Produto
 
 # Create your models here.
 class Carrinho(models.Model):
-    #usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=False)
     criado_em = models.DateTimeField(auto_now_add=True)
 
 
