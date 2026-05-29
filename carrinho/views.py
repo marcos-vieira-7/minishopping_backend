@@ -26,6 +26,7 @@ class CarrinhoViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['post'])
     def adicionar_item(self, request):
 
+
         produto_id = request.data.get("produto_id")
         quantidade = request.data.get("quantidade", 1)
 
